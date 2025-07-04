@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+import * as React from 'react'
 import { type ReactNode } from 'react'
 import {
   Outlet,
@@ -6,8 +7,10 @@ import {
   Scripts,
   Link,
   createRootRoute,
+  useRouter,
 } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
+import { AnimatePresence, motion } from 'framer-motion'
 import '~/styles/tailwind.css'
 
 export const Route = createRootRoute({
@@ -22,11 +25,24 @@ export const Route = createRootRoute({
 })
 
 function RootComponent() {
+  const router = useRouter()
+  const pathname = router.state.location.pathname
+
   return (
     <RootDocument>
       <Header />
-      <main className="container mx-auto px-4 py-8">
-        <Outlet />
+      <main className="container mx-auto px-4 py-8 min-h-screen">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={pathname}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25 }}
+          >
+            <Outlet />
+          </motion.div>
+        </AnimatePresence>
       </main>
       <Footer />
       <TanStackRouterDevtools position="bottom-right" />

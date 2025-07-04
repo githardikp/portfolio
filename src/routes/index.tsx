@@ -6,6 +6,9 @@ export const Route = createFileRoute('/')({
   component: Home,
 })
 
+const NAME = 'Alex Johnson'
+const ROLE = 'Full-Stack JavaScript Engineer'
+
 const highlights = [
   'Full-Stack JavaScript Engineer',
   'React & React Native Specialist',
@@ -23,7 +26,7 @@ function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Hey, I&apos;m <span className="text-blue-600">Your Name</span>
+          Hey, I&apos;m <span className="text-blue-600">{NAME}</span>
         </motion.h1>
         <motion.p
           className="text-xl text-slate-700 dark:text-slate-300"
@@ -31,7 +34,7 @@ function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          I craft secure, scalable and delightful web & mobile experiences.
+          {ROLE} crafting secure, scalable & delightful web and mobile experiences.
         </motion.p>
       </header>
 
