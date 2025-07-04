@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
 
@@ -5,25 +6,64 @@ export const Route = createFileRoute('/')({
   component: Home,
 })
 
+const highlights = [
+  'Full-Stack JavaScript Engineer',
+  'React & React Native Specialist',
+  'Security-minded (OWASP)',
+  'Cloud-native on AWS & Docker',
+] as const
+
 function Home() {
   return (
-    <section className="flex flex-col items-center gap-8">
-      <motion.h1
-        className="text-4xl sm:text-6xl font-bold text-center"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+    <section className="flex flex-col items-center gap-10 py-10">
+      <header className="space-y-6 max-w-3xl text-center">
+        <motion.h1
+          className="text-5xl sm:text-7xl font-extrabold leading-tight"
+          initial={{ opacity: 0, y: -40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Hey, I&apos;m <span className="text-blue-600">Your Name</span>
+        </motion.h1>
+        <motion.p
+          className="text-xl text-slate-700 dark:text-slate-300"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
+          I craft secure, scalable and delightful web & mobile experiences.
+        </motion.p>
+      </header>
+
+      <motion.ul
+        className="flex flex-wrap justify-center gap-4 max-w-2xl"
+        initial="hidden"
+        animate="visible"
+        variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
       >
-        Hi, I&apos;m <span className="text-blue-600">Your Name</span>
-      </motion.h1>
-      <motion.p
-        className="max-w-2xl text-center text-lg"
+        {highlights.map((h) => (
+          <motion.li
+            key={h}
+            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+            className="px-4 py-2 bg-blue-100 text-blue-600 dark:bg-blue-700/20 dark:text-blue-300 rounded text-sm"
+          >
+            {h}
+          </motion.li>
+        ))}
+      </motion.ul>
+
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
+        transition={{ delay: 0.8, duration: 0.6 }}
       >
-        A full-stack developer passionate about building performant, accessible, and delightful digital experiences.
-      </motion.p>
+        <a
+          href="/projects"
+          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded shadow-lg transition-colors"
+        >
+          View My Work
+        </a>
+      </motion.div>
     </section>
   )
 }
