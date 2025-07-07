@@ -18,7 +18,8 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'Developer Portfolio' },
+      { title: 'DSA Academy - Learn Data Structures & Algorithms Through Real-Life Scenarios' },
+      { name: 'description', content: 'Master data structures and algorithms through engaging real-world problems and interactive visualizations.' },
     ],
   }),
   component: RootComponent,
@@ -66,15 +67,15 @@ function RootDocument({ children }: { children: ReactNode }) {
 
 function Header() {
   return (
-    <header className="bg-white/80 backdrop-blur border-b sticky top-0 z-50">
+    <header className="bg-white/90 backdrop-blur border-b sticky top-0 z-50 dark:bg-slate-900/90">
       <nav className="container mx-auto flex items-center gap-6 py-4 px-4">
-        <span className="font-bold text-xl">Your Name</span>
+        <span className="font-bold text-xl text-blue-600">🎓 DSA Academy</span>
         <div className="flex-1" />
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/skills">Skills</NavLink>
-        <NavLink to="/projects">Projects</NavLink>
-        <NavLink to="/tools">Tools</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
+        <NavLink to="/">Dashboard</NavLink>
+        <NavLink to="/learn">Learn</NavLink>
+        <NavLink to="/practice">Practice</NavLink>
+        <NavLink to="/visualize">Visualize</NavLink>
+        <NavLink to="/progress">Progress</NavLink>
       </nav>
     </header>
   )
@@ -93,8 +94,13 @@ function NavLink(props: React.ComponentProps<typeof Link>) {
 
 function Footer() {
   return (
-    <footer className="py-6 border-t text-center text-sm">
-      © {new Date().getFullYear()} Your Name — All rights reserved.
+    <footer className="py-6 border-t text-center text-sm bg-slate-50 dark:bg-slate-800">
+      <div className="container mx-auto px-4">
+        <p>© {new Date().getFullYear()} DSA Academy — Learn Data Structures & Algorithms Through Real-Life Scenarios</p>
+        <p className="text-xs mt-2 text-slate-600 dark:text-slate-400">
+          Built with React, TypeScript, and ❤️ for learning
+        </p>
+      </div>
     </footer>
   )
 }
