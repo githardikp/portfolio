@@ -6,10 +6,10 @@
     "target": "ES2022",
     "skipLibCheck": true,
     "strictNullChecks": true,
-    "types": ["vite/client"]
-  },
-  "paths": {
-    "~/*": ["./src/*"]
+    "types": ["vite/client"],
+    "paths": {
+      "~/*": ["./src/*"]
+    }
   },
   "include": ["src"]
 }

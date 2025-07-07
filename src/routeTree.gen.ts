@@ -14,6 +14,8 @@ import { Route as SkillsRouteImport } from './routes/skills'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DsaIndexRouteImport } from './routes/dsa/index'
+import { Route as DsaProblemIdRouteImport } from './routes/dsa/$problemId'
 
 const ToolsRoute = ToolsRouteImport.update({
   id: '/tools',
@@ -40,6 +42,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DsaIndexRoute = DsaIndexRouteImport.update({
+  id: '/dsa/',
+  path: '/dsa/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DsaProblemIdRoute = DsaProblemIdRouteImport.update({
+  id: '/dsa/$problemId',
+  path: '/dsa/$problemId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +59,8 @@ export interface FileRoutesByFullPath {
   '/projects': typeof ProjectsRoute
   '/skills': typeof SkillsRoute
   '/tools': typeof ToolsRoute
+  '/dsa/$problemId': typeof DsaProblemIdRoute
+  '/dsa': typeof DsaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +68,8 @@ export interface FileRoutesByTo {
   '/projects': typeof ProjectsRoute
   '/skills': typeof SkillsRoute
   '/tools': typeof ToolsRoute
+  '/dsa/$problemId': typeof DsaProblemIdRoute
+  '/dsa': typeof DsaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +78,37 @@ export interface FileRoutesById {
   '/projects': typeof ProjectsRoute
   '/skills': typeof SkillsRoute
   '/tools': typeof ToolsRoute
+  '/dsa/$problemId': typeof DsaProblemIdRoute
+  '/dsa/': typeof DsaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact' | '/projects' | '/skills' | '/tools'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/projects'
+    | '/skills'
+    | '/tools'
+    | '/dsa/$problemId'
+    | '/dsa'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/projects' | '/skills' | '/tools'
-  id: '__root__' | '/' | '/contact' | '/projects' | '/skills' | '/tools'
+  to:
+    | '/'
+    | '/contact'
+    | '/projects'
+    | '/skills'
+    | '/tools'
+    | '/dsa/$problemId'
+    | '/dsa'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/projects'
+    | '/skills'
+    | '/tools'
+    | '/dsa/$problemId'
+    | '/dsa/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +117,8 @@ export interface RootRouteChildren {
   ProjectsRoute: typeof ProjectsRoute
   SkillsRoute: typeof SkillsRoute
   ToolsRoute: typeof ToolsRoute
+  DsaProblemIdRoute: typeof DsaProblemIdRoute
+  DsaIndexRoute: typeof DsaIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +158,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dsa/': {
+      id: '/dsa/'
+      path: '/dsa'
+      fullPath: '/dsa'
+      preLoaderRoute: typeof DsaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dsa/$problemId': {
+      id: '/dsa/$problemId'
+      path: '/dsa/$problemId'
+      fullPath: '/dsa/$problemId'
+      preLoaderRoute: typeof DsaProblemIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +181,8 @@ const rootRouteChildren: RootRouteChildren = {
   ProjectsRoute: ProjectsRoute,
   SkillsRoute: SkillsRoute,
   ToolsRoute: ToolsRoute,
+  DsaProblemIdRoute: DsaProblemIdRoute,
+  DsaIndexRoute: DsaIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

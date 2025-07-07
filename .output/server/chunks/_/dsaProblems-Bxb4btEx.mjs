@@ -1,0 +1,44 @@
+const dsaProblems = [
+  {
+    id: 1,
+    title: "Organise a Library Efficiently",
+    realLifeScenario: "You are responsible for arranging thousands of books in a community library so that visitors can quickly locate any given title.",
+    dsAlgo: "Binary Search Tree",
+    description: "A binary search tree maintains an ordered structure that allows O(log n) average-time searches, insertions and deletions. By cataloguing each book by title (or Dewey decimal number) inside a BST, we minimise the number of shelves we must scan when locating a book.",
+    complexity: "Average O(log n) \xB7 Worst O(n) (unbalanced)",
+    steps: [
+      "Label each book with its unique identifier (e.g. Dewey number).",
+      "Starting with an empty BST, insert books one by one maintaining the ordering rule: left < parent < right.",
+      "Looking up a title becomes a series of left/right shelf decisions, similar to binary search, drastically cutting down the search path."
+    ]
+  },
+  {
+    id: 2,
+    title: 'Design a Ride-Share "Find Nearest Driver" Feature',
+    realLifeScenario: "A rider opens the app and needs to be matched with the closest available driver in real time.",
+    dsAlgo: "K-d Tree (spatial index) + Priority Queue",
+    description: "A k-d tree indexes geographic coordinates enabling efficient nearest-neighbour queries. Once candidate drivers are retrieved, a priority queue (min-heap) is used to continually pop the closest driver as traffic positions update.",
+    complexity: "k-d tree search O(log n) \xB7 Heap pop O(log k)",
+    steps: [
+      "Maintain driver locations in a balanced k-d tree keyed by latitude/longitude.",
+      "Perform a nearest-neighbour query centred on the rider's coordinates to fetch the closest 5-10 drivers.",
+      "Push those drivers into a min-heap prioritised by live distance/time\u2010to-arrival and pop the top driver as the match."
+    ]
+  },
+  {
+    id: 3,
+    title: "Undo/Redo in a Graphics Editor",
+    realLifeScenario: "Users expect to revert or re-apply changes (drawings, moves, layer edits) in tools like Photoshop or Figma.",
+    dsAlgo: "Doubly Linked List + Stack",
+    description: "Two stacks (undo & redo) or a doubly linked list with a cursor can capture the history of actions. Each new action pushes state onto the undo stack and clears the redo stack. Moving the cursor backwards/forwards replays history in O(1).",
+    complexity: "Push/Pop O(1)",
+    steps: [
+      "Represent every change as a command object implementing do/undo.",
+      "On new command execution, push it onto the undo stack and clear the redo stack.",
+      "Undo pops from undo and pushes onto redo; redo pops from redo and pushes back onto undo."
+    ]
+  }
+];
+
+export { dsaProblems as d };
+//# sourceMappingURL=dsaProblems-Bxb4btEx.mjs.map

@@ -3,7 +3,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
 import { dsaProblems } from '~/data/dsaProblems'
 
-export const Route = createFileRoute('/dsa')({
+export const Route = createFileRoute('/dsa/')({
   component: DSAList,
 })
 

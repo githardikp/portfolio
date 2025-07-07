@@ -1,0 +1,89 @@
+{
+  "../~start/default-client-entry.tsx": {
+    "file": "assets/main-DwX_4CBv.js",
+    "name": "main",
+    "src": "../~start/default-client-entry.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "src/routes/tools.tsx?tsr-split=component",
+      "src/routes/skills.tsx?tsr-split=component",
+      "src/routes/projects.tsx?tsr-split=component",
+      "src/routes/contact.tsx?tsr-split=component",
+      "src/routes/index.tsx?tsr-split=component",
+      "src/routes/dsa/index.tsx?tsr-split=component",
+      "src/routes/dsa/$problemId.tsx?tsr-split=component"
+    ],
+    "css": [
+      "assets/main-TV_pO32E.css"
+    ]
+  },
+  "_dsaProblems-BiNRDyLq.js": {
+    "file": "assets/dsaProblems-BiNRDyLq.js",
+    "name": "dsaProblems"
+  },
+  "src/routes/contact.tsx?tsr-split=component": {
+    "file": "assets/contact-DFZDWlbR.js",
+    "name": "contact",
+    "src": "src/routes/contact.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "../~start/default-client-entry.tsx"
+    ]
+  },
+  "src/routes/dsa/$problemId.tsx?tsr-split=component": {
+    "file": "assets/_problemId-BeJGKPWH.js",
+    "name": "_problemId",
+    "src": "src/routes/dsa/$problemId.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "../~start/default-client-entry.tsx",
+      "_dsaProblems-BiNRDyLq.js"
+    ]
+  },
+  "src/routes/dsa/index.tsx?tsr-split=component": {
+    "file": "assets/index-Ce54XvGI.js",
+    "name": "index",
+    "src": "src/routes/dsa/index.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "../~start/default-client-entry.tsx",
+      "_dsaProblems-BiNRDyLq.js"
+    ]
+  },
+  "src/routes/index.tsx?tsr-split=component": {
+    "file": "assets/index-BSAj8wf5.js",
+    "name": "index",
+    "src": "src/routes/index.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "../~start/default-client-entry.tsx"
+    ]
+  },
+  "src/routes/projects.tsx?tsr-split=component": {
+    "file": "assets/projects-Bq-EqOIo.js",
+    "name": "projects",
+    "src": "src/routes/projects.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "../~start/default-client-entry.tsx"
+    ]
+  },
+  "src/routes/skills.tsx?tsr-split=component": {
+    "file": "assets/skills-Ez9Vcrt0.js",
+    "name": "skills",
+    "src": "src/routes/skills.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "../~start/default-client-entry.tsx"
+    ]
+  },
+  "src/routes/tools.tsx?tsr-split=component": {
+    "file": "assets/tools-Q3-d_ZGY.js",
+    "name": "tools",
+    "src": "src/routes/tools.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "../~start/default-client-entry.tsx"
+    ]
+  }
+}
