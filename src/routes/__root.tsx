@@ -74,6 +74,7 @@ function Header() {
         <NavLink to="/skills">Skills</NavLink>
         <NavLink to="/projects">Projects</NavLink>
         <NavLink to="/tools">Tools</NavLink>
+        <NavLink to="/dsa">DSA Learning</NavLink>
         <NavLink to="/contact">Contact</NavLink>
       </nav>
     </header>
